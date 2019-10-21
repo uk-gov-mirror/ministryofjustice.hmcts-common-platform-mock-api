@@ -13,6 +13,7 @@
 Layout/DefEndAlignment:
   Exclude:
     - 'app/models/allocation_decision.rb'
+    - 'spec/support/schemas/parse_script.rb'
 
 # Offense count: 13
 Metrics/AbcSize:
