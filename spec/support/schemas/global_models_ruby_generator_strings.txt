@@ -1,0 +1,347 @@
+judicialRole.json
+-------------------------------------
+rails g model JudicialRole judicialId:uuid title:string firstName:string middleName:string lastName:string judicialRoleType:references isDeputy:boolean isBenchChairman:boolean 
+
+
+nextHearingProsecutionCase.json
+-------------------------------------
+rails g model NextHearingProsecutionCase id:uuid defendants:array 
+
+
+courtApplicationPartyCounsel.json
+-------------------------------------
+rails g model CourtApplicationPartyCounsel id:uuid applicationId:uuid title:string firstName:string middleName:string lastName:string status:string applicationRespondents:array attendanceDays:array 
+
+
+prosecutionCase.json
+-------------------------------------
+rails g model ProsecutionCase id:uuid prosecutionCaseIdentifier:references originatingOrganisation:string initiationCode:references caseStatus:references policeOfficerInCase:references statementOfFacts:string statementOfFactsWelsh:string breachProceedingsPending:boolean appealProceedingsPending:boolean defendants:array caseMarkers:array splitProsecutorCaseReferences:array mergedProsecutionCase:references linkedProsecutionCases:array 
+
+
+organisation.json
+-------------------------------------
+rails g model Organisation name:string incorporationNumber:string registeredCharityNumber:string address:references contact:references 
+
+
+defendant.json
+-------------------------------------
+rails g model Defendant id:uuid prosecutionCaseId:uuid numberOfPreviousConvictionsCited:references prosecutionAuthorityReference:string witnessStatement:string witnessStatementWelsh:string mitigation:string mitigationWelsh:string offences:array associatedPersons:array associatedDefenceOrganisations:array personDefendant:references legalEntityDefendant:references aliases:array judicialResults:array croNumber:string pncId:string defendantMarkers:array splitProsecutorCaseReferences:array mergedProsecutionCaseReference:string linkedDefendants:array 
+
+
+personDefendant.json
+-------------------------------------
+rails g model PersonDefendant personDetails:references bailStatus:references bailConditions:string bailReasons:string custodyTimeLimit:references perceivedBirthYear:references driverNumber:string driverLicenceCode:references driverLicenseIssue:string vehicleOperatorLicenceNumber:string arrestSummonsNumber:string employerOrganisation:references employerPayrollReference:string 
+
+
+judicialResultPromptDurationElement.json
+-------------------------------------
+rails g model JudicialResultPromptDurationElement primaryDurationUnit:string primaryDurationValue:integer primaryLabel:string secondaryDurationUnit:string secondaryDurationValue:integer tertiaryDurationUnit:string tertiaryDurationValue:integer durationStartDate:string durationEndDate:string 
+
+
+courtApplicationResponse.json
+-------------------------------------
+rails g model CourtApplicationResponse originatingHearingId:uuid applicationId:uuid applicationResponseDate:references applicationResponseType:references 
+
+
+nextHearingDefendant.json
+-------------------------------------
+rails g model NextHearingDefendant id:uuid offences:array 
+
+
+respondentCounsel.json
+-------------------------------------
+rails g model RespondentCounsel id:uuid title:string firstName:string middleName:string lastName:string status:string respondents:array attendanceDays:array 
+
+
+judicialResultPrompt.json
+-------------------------------------
+rails g model JudicialResultPrompt label:string isAvailableForCourtExtract:boolean welshLabel:string value:string qualifier:string durationSequence:number promptSequence:number promptReference:string totalPenaltyPoints:number isFinancialImposition:boolean usergroups:array 
+
+
+courtApplicationRespondent.json
+-------------------------------------
+rails g model CourtApplicationRespondent partyDetails:references applicationResponse:references 
+
+
+courtsDefinitions.json
+-------------------------------------
+lesserOrAlternativeOffence.json
+-------------------------------------
+rails g model LesserOrAlternativeOffence offenceDefinitionId:uuid offenceCode:string offenceTitle:string offenceTitleWelsh:string offenceLegislation:string offenceLegislationWelsh:string 
+
+
+mergedProsecutionCaseTarget.json
+-------------------------------------
+rails g model MergedProsecutionCaseTarget prosecutionCaseId:uuid prosecutionCaseReference:string 
+
+
+crackedIneffectiveTrial.json
+-------------------------------------
+rails g model CrackedIneffectiveTrial id:uuid code:string description:string type:string 
+
+
+marker.json
+-------------------------------------
+rails g model Marker id:uuid markerTypeid:uuid sequenceNumber:string markerTypeCode:string markerTypeLabel:string markerTypeName:string splitProsecutorCaseReference:string 
+
+
+verdictType.json
+-------------------------------------
+rails g model VerdictType id:uuid sequence:references description:string category:string categoryType:string 
+
+
+allocationDecision.json
+-------------------------------------
+rails g model AllocationDecision originatingHearingId:uuid offenceId:uuid motReasonId:uuid motReasonDescription:string motReasonCode:integer allocationDecisionDate:references isSection22ALowValueShoplifting:boolean isDamageValueUnder5000:boolean isTreatedAsIndictableOnly:boolean sentencingIndicationRequested:boolean courtIndicatedSentence:references 
+
+
+prosecutingAuthority.json
+-------------------------------------
+rails g model ProsecutingAuthority prosecutionAuthorityId:uuid prosecutionAuthorityCode:string name:string accountCode:string address:references contact:references 
+
+
+applicantCounsel.json
+-------------------------------------
+rails g model ApplicantCounsel id:uuid title:string firstName:string middleName:string lastName:string status:string applicants:array attendanceDays:array 
+
+
+delegatedPowers.json
+-------------------------------------
+rails g model DelegatedPowers userId:uuid firstName:string lastName:string 
+
+
+courtApplicationResponseType.json
+-------------------------------------
+rails g model CourtApplicationResponseType id:uuid sequence:references description:string 
+
+
+courtApplicationPayment.json
+-------------------------------------
+rails g model CourtApplicationPayment isFeePaid:boolean isFeeUndertakingAttached:boolean isFeeExempt:boolean paymentReference:string 
+
+
+notifiedPlea.json
+-------------------------------------
+rails g model NotifiedPlea offenceId:uuid notifiedPleaDate:references notifiedPleaValue:string 
+
+
+courtApplication.json
+-------------------------------------
+rails g model CourtApplication id:uuid type:references applicationReceivedDate:references applicationReference:string applicant:references respondents:array applicationOutcome:references linkedCaseId:uuid linkedSplitProsecutorCaseReference:string parentApplicationId:uuid applicationParticulars:string courtApplicationPayment:references applicationDecisionSoughtByDate:references applicationStatus:references outOfTimeReasons:string breachedOrder:string breachedOrderDate:string orderingCourt:references judicialResults:array 
+
+
+laaReference.json
+-------------------------------------
+rails g model LaaReference applicationReference:string statusId:uuid statusCode:string statusDescription:string statusDate:references effectiveStartDate:references effectiveEndDate:references 
+
+
+verdict.json
+-------------------------------------
+rails g model Verdict originatingHearingId:uuid offenceId:uuid verdictDate:references verdictType:references jurors:references lesserOrAlternativeOffence:references 
+
+
+person.json
+-------------------------------------
+rails g model Person title:references firstName:string middleName:string lastName:string dateOfBirth:references nationalityId:uuid nationalityCode:string nationalityDescription:string additionalNationalityId:uuid additionalNationalityCode:string additionalNationalityDescription:string disabilityStatus:string ethnicity:references gender:references interpreterLanguageNeeds:string documentationLanguageNeeds:references nationalInsuranceNumber:references occupation:string occupationCode:string specificRequirements:string address:references contact:references 
+
+
+courtIndicatedSentence.json
+-------------------------------------
+rails g model CourtIndicatedSentence courtIndicatedSentenceTypeId:uuid courtIndicatedSentenceDescription:string 
+
+
+custodyTimeLimit.json
+-------------------------------------
+rails g model CustodyTimeLimit timeLimit:references daysSpent:integer 
+
+
+courtApplicationPartyAttendance.json
+-------------------------------------
+rails g model CourtApplicationPartyAttendance courtApplicationPartyId:uuid attendanceDays:array 
+
+
+nextHearing.json
+-------------------------------------
+rails g model NextHearing type:references jurisdictionType:references reportingRestrictionReason:string adjournmentReason:string hearingLanguage:references listedStartDateTime:string estimatedMinutes:references courtCentre:references judiciary:array nextHearingProsecutionCases:array nextHearingCourtApplicationId:array 
+
+
+nextHearingOffence.json
+-------------------------------------
+rails g model NextHearingOffence id:uuid 
+
+
+linkedDefendant.json
+-------------------------------------
+rails g model LinkedDefendant prosecutionCaseId:uuid defendantId:uuid 
+
+
+hearing.json
+-------------------------------------
+rails g model Hearing id:uuid jurisdictionType:references reportingRestrictionReason:string courtCentre:references hearingLanguage:references prosecutionCases:array hasSharedResults:boolean courtApplications:array defendantReferralReasons:array hearingCaseNotes:array type:references hearingDays:array judiciary:array applicantCounsels:array respondentCounsels:array prosecutionCounsels:array defenceCounsels:array applicationPartyCounsels:array defendantAttendance:array defendantHearingYouthMarkers:array courtApplicationPartyAttendance:array crackedIneffectiveTrial:references isEffectiveTrial:boolean isBoxHearing:boolean 
+
+
+address.json
+-------------------------------------
+rails g model Address address1:string address2:string address3:string address4:string address5:string postcode:references 
+
+
+defenceCounsel.json
+-------------------------------------
+rails g model DefenceCounsel id:uuid title:string firstName:string middleName:string lastName:string status:string defendants:array attendanceDays:array 
+
+
+hearingDay.json
+-------------------------------------
+rails g model HearingDay sittingDay:string listingSequence:references listedDurationMinutes:references 
+
+
+mergedProsecutionCase.json
+-------------------------------------
+rails g model MergedProsecutionCase prosecutionCaseReference:string mergedProsecutionCaseTargets:array 
+
+
+offence.json
+-------------------------------------
+rails g model Offence id:uuid offenceDefinitionId:uuid offenceCode:string offenceTitle:string offenceTitleWelsh:string offenceLegislation:string offenceLegislationWelsh:string modeOfTrial:string wording:string wordingWelsh:string startDate:references endDate:references arrestDate:references chargeDate:references dateOfInformation:references orderIndex:references count:references convictionDate:references notifiedPlea:references indicatedPlea:references allocationDecision:references plea:references verdict:references offenceFacts:references aquittalDate:references victims:array judicialResults:array isDisposed:boolean isDiscontinued:boolean isIntroduceAfterInitialProceedings:boolean laaApplnReferences:array custodyTimeLimit:references splitProsecutorCaseReference:string mergedProsecutionCaseReference:string 
+
+
+legalEntityDefendant.json
+-------------------------------------
+rails g model LegalEntityDefendant organisation:references 
+
+
+associatedDefenceOrganisation.json
+-------------------------------------
+rails g model AssociatedDefenceOrganisation organisation:references laaContractNumber:string sraNumber:string barCouncilMembershipNumber:string associationStartDate:references associationEndDate:references fundingType:references isAssociatedByLAA:boolean 
+
+
+defendantAttendance.json
+-------------------------------------
+rails g model DefendantAttendance defendantId:uuid attendanceDays:array 
+
+
+prosecutionCaseIdentifier.json
+-------------------------------------
+rails g model ProsecutionCaseIdentifier prosecutionAuthorityId:uuid prosecutionAuthorityCode:string 
+
+
+courtApplicationOutcomeType.json
+-------------------------------------
+rails g model CourtApplicationOutcomeType id:uuid sequence:references description:string 
+
+
+judicialRoleType.json
+-------------------------------------
+rails g model JudicialRoleType judicialRoleTypeId:uuid judiciaryType:string 
+
+
+judicialResult.json
+-------------------------------------
+rails g model JudicialResult judicialResultId:uuid orderedHearingId:uuid label:string welshLabel:string isAdjournmentResult:boolean isFinancialResult:boolean isConvictedResult:boolean isAvailableForCourtExtract:boolean isDeleted:boolean amendmentReasonId:uuid amendmentReason:string amendmentDate:references qualifier:string resultText:string cjsCode:string postHearingCustodyStatus:string rank:number orderedDate:references lastSharedDateTime:string terminatesOffenceProceedings:boolean isLifeDuration:boolean isPublishedAsAPrompt:boolean isExcludedFromResults:boolean isAlwaysPublished:boolean isUrgent:boolean isD20:boolean courtClerk:references delegatedPowers:references fourEyesApproval:references approvedDate:references usergroups:array category:references nextHearing:references durationElement:references judicialResultPrompts:array 
+
+
+policeOfficerInCase.json
+-------------------------------------
+rails g model PoliceOfficerInCase personDetails:references policeOfficerRank:string policeWorkerReferenceNumber:string policeWorkerLocationCode:string 
+
+
+indicatedPlea.json
+-------------------------------------
+rails g model IndicatedPlea offenceId:uuid originatingHearingId:uuid indicatedPleaDate:references indicatedPleaValue:string source:string 
+
+
+hearingType.json
+-------------------------------------
+rails g model HearingType id:uuid description:string code:string 
+
+
+courtCentre.json
+-------------------------------------
+rails g model CourtCentre id:uuid name:string welshName:string roomId:uuid roomName:string welshRoomName:string address:references 
+
+
+associatedPerson.json
+-------------------------------------
+rails g model AssociatedPerson person:references role:string 
+
+
+prosecutionCounsel.json
+-------------------------------------
+rails g model ProsecutionCounsel id:uuid title:string firstName:string middleName:string lastName:string status:string prosecutionCases:array attendanceDays:array 
+
+
+defendantAlias.json
+-------------------------------------
+rails g model DefendantAlias title:references firstName:string middleName:string lastName:string legalEntityName:string 
+
+
+jurors.json
+-------------------------------------
+rails g model Jurors numberOfJurors:integer numberOfSplitJurors:integer unanimous:boolean 
+
+
+offenceFacts.json
+-------------------------------------
+rails g model OffenceFacts vehicleRegistration:string alcoholReadingAmount:integer alcoholReadingMethodCode:string alcoholReadingMethodDescription:string vehicleCode:references 
+
+
+defendantHearingYouthMarker.json
+-------------------------------------
+rails g model DefendantHearingYouthMarker prosecutionCaseId:uuid defendantId:uuid hearingId:uuid marker:references 
+
+
+attendanceDay.json
+-------------------------------------
+rails g model AttendanceDay day:references isInAttendance:boolean 
+
+
+courtApplicationParty.json
+-------------------------------------
+rails g model CourtApplicationParty id:uuid synonym:string personDetails:references organisation:references organisationPersons:array prosecutingAuthority:references defendant:references representationOrganisation:references 
+
+
+courtApplicationOutcome.json
+-------------------------------------
+rails g model CourtApplicationOutcome originatingHearingId:uuid applicationId:uuid applicationOutcomeDate:references applicationOutcomeType:references 
+
+
+bailStatus.json
+-------------------------------------
+rails g model BailStatus id:uuid code:string description:string custodyTimeLimit:references 
+
+
+referralReason.json
+-------------------------------------
+rails g model ReferralReason id:uuid description:string defendantId:uuid 
+
+
+hearingCaseNote.json
+-------------------------------------
+rails g model HearingCaseNote originatingHearingId:uuid id:uuid courtClerk:references prosecutionCases:array noteDateTime:string noteType:string note:string 
+
+
+defenceOrganisation.json
+-------------------------------------
+rails g model DefenceOrganisation organisation:references laaContractNumber:string sraNumber:string barCouncilMembershipNumber:string 
+
+
+ethnicity.json
+-------------------------------------
+rails g model Ethnicity observedEthnicityId:uuid observedEthnicityCode:string observedEthnicityDescription:string selfDefinedEthnicityId:uuid selfDefinedEthnicityCode:string selfDefinedEthnicityDescription:string 
+
+
+contactNumber.json
+-------------------------------------
+rails g model ContactNumber home:references work:string mobile:references primaryEmail:references secondaryEmail:references fax:string 
+
+
+plea.json
+-------------------------------------
+rails g model Plea originatingHearingId:uuid delegatedPowers:references offenceId:uuid pleaDate:references pleaValue:string 
+
+
+courtApplicationType.json
+-------------------------------------
+rails g model CourtApplicationType id:uuid applicationCode:string applicationType:string applicationTypeWelsh:string applicationLegislation:string applicationLegislationWelsh:string applicationCategory:string isAppealApplication:boolean isBreachApplication:boolean isApplicationToRecordCourtOfAppealDecision:boolean linkType:references applicantSynonym:string respondentSynonym:string applicationJurisdictionType:references applicationSummonsRecipientType:references applicationSummonsTemplateType:references 
+
+

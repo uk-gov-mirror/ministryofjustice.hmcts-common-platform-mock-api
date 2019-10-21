@@ -1,0 +1,25 @@
+defendantSummary.json
+-------------------------------------
+rails g model DefendantSummary defendantId:uuid nationalInsuranceNumber:references arrestSummonsNumber:string name:references dateOfBirth:references dateOfNextHearing:references proceedingsConcluded:boolean offences:array 
+
+
+prosecutionCaseSummary.json
+-------------------------------------
+rails g model ProsecutionCaseSummary prosecutionCaseId:uuid prosecutionCaseReference:string caseStatus:references defendants:array hearings:array 
+
+
+offenceSummary.json
+-------------------------------------
+rails g model OffenceSummary offenceId:uuid offenceCode:string orderIndex:references offenceTitle:string offenceLegislation:string wording:string arrestDate:references chargeDate:references dateOfInformation:references modeOfTrial:string startDate:references endDate:references proceedingsConcluded:boolean laaApplnReference:references 
+
+
+hearingSummary.json
+-------------------------------------
+rails g model HearingSummary hearingId:uuid jurisdictionType:references courtCentre:references type:references defendants:array 
+
+
+defendantName.json
+-------------------------------------
+rails g model DefendantName organisationName:string firstName:string middleName:string lastName:string 
+
+
