@@ -21,11 +21,14 @@ class Offence < ApplicationRecord
   validates :wording, presence: true
   validates :startDate, presence: true
 
+  attr_accessor :dvlaCode, :laidDate
+
   def to_builder
     Jbuilder.new do |offence|
       offence.id id
       offence.offenceDefinitionId offenceDefinitionId
       offence.offenceCode offenceCode
+      offence.dvlaCode dvlaCode
       offence.offenceTitle offenceTitle
       offence.offenceTitleWelsh offenceTitleWelsh
       offence.offenceLegislation offenceLegislation
@@ -37,6 +40,7 @@ class Offence < ApplicationRecord
       offence.endDate endDate.to_date
       offence.arrestDate arrestDate.to_date
       offence.chargeDate chargeDate.to_date
+      offence.laidDate laidDate.to_date
       offence.dateOfInformation dateOfInformation.to_date
       offence.orderIndex orderIndex
       offence.count count
@@ -50,13 +54,13 @@ class Offence < ApplicationRecord
       offence.aquittalDate aquittalDate.to_date
       offence.victims array_builder(victims)
       offence.judicialResults array_builder(judicial_results)
-      offence.isDisposed isDisposed
+      # offence.isDisposed isDisposed
       offence.isDiscontinued isDiscontinued
-      offence.isIntroduceAfterInitialProceedings isIntroduceAfterInitialProceedings
-      offence.laaApplnReferences array_builder(laa_references)
+      # offence.isIntroduceAfterInitialProceedings isIntroduceAfterInitialProceedings
+      # offence.laaApplnReferences array_builder(laa_references)
       offence.custodyTimeLimit custody_time_limit.to_builder if custody_time_limit.present?
       offence.splitProsecutorCaseReference splitProsecutorCaseReference
-      offence.mergedProsecutionCaseReference mergedProsecutionCaseReference
+      # offence.mergedProsecutionCaseReference mergedProsecutionCaseReference
     end
   end
 end

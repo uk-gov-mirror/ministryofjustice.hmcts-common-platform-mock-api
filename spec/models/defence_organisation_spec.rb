@@ -17,25 +17,6 @@ RSpec.describe DefenceOrganisation, type: :model do
     it_has_behaviour 'conforming to valid schema'
   end
 
-  describe 'when sraNumber is present' do
-    before do
-      defence_organisation.laaContractNumber = nil
-      defence_organisation.sraNumber = 'Random Number'
-    end
-    it { should validate_presence_of(:sraNumber) }
-    it_has_behaviour 'conforming to valid schema'
-  end
-
-  describe 'when barCouncilMembershipNumber is present' do
-    before do
-      defence_organisation.laaContractNumber = nil
-      defence_organisation.sraNumber = nil
-      defence_organisation.barCouncilMembershipNumber = 'Random Number'
-    end
-    it { should validate_presence_of(:barCouncilMembershipNumber) }
-    it_has_behaviour 'conforming to valid schema'
-  end
-
   context 'when associated with a Defendant' do
     let(:defence_organisation) { FactoryBot.create(:associated_defence_organisation) }
     let(:json_schema) { :associated_defence_organisation }
@@ -43,7 +24,29 @@ RSpec.describe DefenceOrganisation, type: :model do
     it { should validate_presence_of(:fundingType) }
     it { should validate_presence_of(:associationStartDate) }
 
-    it_has_behaviour 'conforming to valid schema'
+    describe 'when laaContractNumber is present' do
+      it { should validate_presence_of(:laaContractNumber) }
+      it_has_behaviour 'conforming to valid schema'
+    end
+
+    describe 'when sraNumber is present' do
+      before do
+        defence_organisation.laaContractNumber = nil
+        defence_organisation.sraNumber = 'Random Number'
+      end
+      it { should validate_presence_of(:sraNumber) }
+      it_has_behaviour 'conforming to valid schema'
+    end
+
+    describe 'when barCouncilMembershipNumber is present' do
+      before do
+        defence_organisation.laaContractNumber = nil
+        defence_organisation.sraNumber = nil
+        defence_organisation.barCouncilMembershipNumber = 'Random Number'
+      end
+      it { should validate_presence_of(:barCouncilMembershipNumber) }
+      it_has_behaviour 'conforming to valid schema'
+    end
   end
 
   it_has_a 'realistic factory'

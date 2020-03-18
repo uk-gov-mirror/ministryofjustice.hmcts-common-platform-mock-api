@@ -72,7 +72,7 @@ class Defendant < ApplicationRecord
       defendant.pncId pncId
       defendant.defendantMarkers array_builder(markers)
       defendant.splitProsecutorCaseReferences split_prosecutor_case_references_builder
-      defendant.mergedProsecutionCaseReference mergedProsecutionCaseReference
+      # defendant.mergedProsecutionCaseReference mergedProsecutionCaseReference
       defendant.linkedDefendants array_builder(linked_defendants)
     end
   end

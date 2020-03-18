@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_142442) do
+ActiveRecord::Schema.define(version: 2020_03_09_151513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_142442) do
     t.uuid "address_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ouCode"
     t.index ["address_id"], name: "index_court_centres_on_address_id"
   end
 
@@ -480,6 +481,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_142442) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "judicial_result_id"
+    t.uuid "judicialResultPromptTypeId"
     t.index ["judicial_result_id"], name: "index_judicial_result_prompts_on_judicial_result_id"
   end
 
@@ -522,6 +524,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_142442) do
     t.uuid "offence_id"
     t.uuid "defendant_id"
     t.uuid "court_application_id"
+    t.uuid "judicialResultTypeId"
     t.index ["court_application_id"], name: "index_judicial_results_on_court_application_id"
     t.index ["court_clerk_id"], name: "index_judicial_results_on_court_clerk_id"
     t.index ["defendant_id"], name: "index_judicial_results_on_defendant_id"

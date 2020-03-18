@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :offence, aliases: [:realistic_offence] do
     offenceDefinitionId { SecureRandom.uuid }
     offenceCode { 'Random string' }
+    dvlaCode { 'Random string' }
     offenceTitle { 'Random string' }
     offenceTitleWelsh { 'Llinyn ar hap' }
     offenceLegislation { 'Random string' }
@@ -15,6 +16,7 @@ FactoryBot.define do
     endDate { '2019-10-17 14:06:13' }
     arrestDate { '2019-10-17 14:06:13' }
     chargeDate { '2019-10-17 14:06:13' }
+    laidDate { '2019-10-17 14:06:13' }
     dateOfInformation { '2019-10-17 14:06:13' }
     orderIndex { 1 }
     count { 1 }

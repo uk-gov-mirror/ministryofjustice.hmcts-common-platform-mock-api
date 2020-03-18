@@ -51,18 +51,20 @@ class LaaRepresentationOrderRecorder < ApplicationService
   end
 
   def register_dependant_schemas!
-    # Since courtsDefinitions.json does not map to the expected directory structure for both the api responses and the model schemas,
+    # Since apiCourtsDefinitions.json does not map to the expected directory structure for both the api responses and the model schemas,
     # we are overriding the id, to ensure that the validator can find the definitions without blowing up.
-    courts_definitions = JSON.parse(File.open(Rails.root.join('lib/schemas/global/courtsDefinitions.json')).read)
-    courts_definitions['id'] = 'http://justice.gov.uk/progression/global/courtsDefinitions.json'
+    courts_definitions = JSON.parse(File.open(Rails.root.join('lib/schemas/global/apiCourtsDefinitions.json')).read)
+    courts_definitions['id'] = 'http://justice.gov.uk/progression/external/global/apicourtsDefinitions.json'
+    JSON::Validator.add_schema(JSON::Schema.new(courts_definitions, Addressable::URI.parse(courts_definitions['id'])))
+    courts_definitions['id'] = 'http://justice.gov.uk/progression/external/global/apiCourtsDefinitions.json'
     JSON::Validator.add_schema(JSON::Schema.new(courts_definitions, Addressable::URI.parse(courts_definitions['id'])))
 
-    defence_organisation = JSON.parse(File.open(Rails.root.join('lib/schemas/global/defenceOrganisation.json')).read)
-    defence_organisation['id'] = 'http://justice.gov.uk/progression/global/defenceOrganisation.json'
+    defence_organisation = JSON.parse(File.open(Rails.root.join('lib/schemas/global/apiDefenceOrganisation.json')).read)
+    defence_organisation['id'] = 'http://justice.gov.uk/progression/external/global/apiDefenceOrganisation.json'
     JSON::Validator.add_schema(JSON::Schema.new(defence_organisation, Addressable::URI.parse(defence_organisation['id'])))
 
-    organisation = JSON.parse(File.open(Rails.root.join('lib/schemas/global/organisation.json')).read)
-    organisation['id'] = 'http://justice.gov.uk/progression/global/organisation.json'
+    organisation = JSON.parse(File.open(Rails.root.join('lib/schemas/global/apiOrganisation.json')).read)
+    organisation['id'] = 'http://justice.gov.uk/progression/external/global/apiOrganisation.json'
     JSON::Validator.add_schema(JSON::Schema.new(organisation, Addressable::URI.parse(organisation['id'])))
   end
 end

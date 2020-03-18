@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :judicial_result, aliases: [:realistic_judicial_result] do
     judicialResultId { SecureRandom.uuid }
+    judicialResultTypeId { SecureRandom.uuid }
     orderedHearingId { SecureRandom.uuid }
     label { 'Random String' }
     welshLabel { 'Llinyn ar hap' }

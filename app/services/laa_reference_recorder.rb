@@ -38,10 +38,10 @@ class LaaReferenceRecorder < ApplicationService
   end
 
   def register_dependant_schemas!
-    # Since courtsDefinitions.json does not map to the expected directory structure for both the api responses and the model schemas,
+    # Since apiCourtsDefinitions.json does not map to the expected directory structure for both the api responses and the model schemas,
     # we are overriding the id, to ensure that the validator can find the definitions without blowing up.
-    courts_definitions = JSON.parse(File.open(Rails.root.join('lib/schemas/global/courtsDefinitions.json')).read)
-    courts_definitions['id'] = 'http://justice.gov.uk/progression/global/courtsDefinitions.json'
+    courts_definitions = JSON.parse(File.open(Rails.root.join('lib/schemas/global/apiCourtsDefinitions.json')).read)
+    courts_definitions['id'] = 'http://justice.gov.uk/progression/global/apicourtsDefinitions.json'
     JSON::Validator.add_schema(JSON::Schema.new(courts_definitions, Addressable::URI.parse(courts_definitions['id'])))
   end
 end

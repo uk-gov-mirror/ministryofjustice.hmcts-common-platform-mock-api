@@ -7,6 +7,7 @@ class CourtCentre < ApplicationRecord
     Jbuilder.new do |court_centre|
       court_centre.id id
       court_centre.name name
+      court_centre.ouCode ouCode
       court_centre.welshName welshName
       court_centre.roomId roomId
       court_centre.roomName roomName

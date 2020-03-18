@@ -30,6 +30,13 @@ RSpec.describe Offence, type: :model do
 
   it_has_behaviour 'conforming to valid schema'
 
+  it 'responds to schema keys' do
+    schema = File.read(Rails.root.join(RSpec.configuration.json_schemas[json_schema]))
+    JSON.parse(schema)['properties'].each_key do |key|
+      expect(offence).to respond_to(key)
+    end
+  end
+
   context 'with relationships' do
     before do
       offence.notified_plea = FactoryBot.create(:notified_plea)

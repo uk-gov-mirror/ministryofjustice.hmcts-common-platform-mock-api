@@ -31,6 +31,7 @@ class JudicialResult < ApplicationRecord
   def to_builder
     Jbuilder.new do |judicial_result|
       judicial_result.judicialResultId judicialResultId
+      judicial_result.judicialResultTypeId judicialResultTypeId
       judicial_result.orderedHearingId orderedHearingId
       judicial_result.label label
       judicial_result.welshLabel welshLabel
