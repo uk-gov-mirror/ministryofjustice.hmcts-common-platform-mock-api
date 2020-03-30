@@ -1,0 +1,118 @@
+{
+  "id": "b935a64a-6d03-4da4-bba6-4d32cc2e7fb4",
+  "jurisdictionType": "MAGISTRATES",
+  "courtCentre": {
+    "address": {
+      "address1": "Norwich Place",
+      "address2": "Bexleyheath",
+      "address3": "Kent",
+      "address4": "",
+      "address5": "",
+      "postcode": "DA6 7ND"
+    },
+    "id": "7e967376-eacf-4fca-9b30-21b0c5aad427",
+    "name": "Bexley Magistrates' Court",
+    "roomId": "8e912353-3b5d-36c3-953e-ad3b94b19de3",
+    "roomName": "Courtroom 01"
+  },
+  "hearingDays": [
+    {
+      "listedDurationMinutes": 20,
+      "listingSequence": 0,
+      "sittingDay": "2020-02-17T15:00:00.000Z"
+    }
+  ],
+  "type": {
+    "description": "First hearing",
+    "id": "4a0e892d-c0c5-3c51-95b8-704d8c781776"
+  },
+  "hearingLanguage": "ENGLISH",
+  "prosecutionCases": [
+    {
+      "id": "5edd67eb-9d8c-44f2-a57e-c8d026defaa4",
+      "prosecutionCaseIdentifier": {
+        "prosecutionAuthorityCode": "DVLA",
+        "prosecutionAuthorityId": "6ae4b163-658b-3ae2-a66d-43401cac2f96",
+        "caseURN": "20GD0217100"
+      },
+      "initiationCode": "C",
+      "defendants": [
+        {
+          "id": "2ecc9feb-9407-482f-b081-d9e5c8ba3ed3",
+          "prosecutionCaseId": "5edd67eb-9d8c-44f2-a57e-c8d026defaa4",
+          "offences": [
+            {
+              "id": "3f153786-f3cf-4311-bc0c-2d6f48af68a1",
+              "offenceDefinitionId": "880a9785-cabb-49ee-9f8f-1c879020ec2f",
+              "offenceCode": "PT00011",
+              "offenceTitle": "Driver / other person fail to immediately move a vehicle from a cordoned area on order of a constable",
+              "wording": "Test",
+              "startDate": "2020-02-01",
+              "modeOfTrial": "Summary",
+              "arrestDate": "2020-02-01",
+              "chargeDate": "2020-02-01",
+              "orderIndex": 1,
+              "count": 0,
+              "judicialResults": [
+                {
+                  "category": "FINAL",
+                  "cjsCode": "1017",
+                  "courtClerk": {
+                    "firstName": "Erica",
+                    "lastName": "Wilson",
+                    "userId": "31ec3a16-8721-498c-8da5-f099390ee254"
+                  },
+                  "isAdjournmentResult": false,
+                  "isAvailableForCourtExtract": true,
+                  "isConvictedResult": true,
+                  "isDeleted": false,
+                  "isFinancialResult": false,
+                  "judicialResultId": "7b4cdbde-8cd0-4847-bef3-d200d12b68ff",
+                  "label": "Absolute discharge",
+                  "lastSharedDateTime": "2020-03-05",
+                  "orderedDate": "2020-02-17",
+                  "orderedHearingId": "b935a64a-6d03-4da4-bba6-4d32cc2e7fb4",
+                  "rank": 7500,
+                  "usergroups": [
+                    "Court Clerks",
+                    "Legal Advisers"
+                  ],
+                  "welshLabel": "Rhyddhad diamod"
+                }
+              ],
+              "laaApplnReference": {
+                "applicationReference": "AB746921",
+                "offenceLevelStatus": "Granted",
+                "statusCode": "GR",
+                "statusDate": "1980-07-15",
+                "statusDescription": "Granted (One Advocate)",
+                "statusId": "98e86937-9652-32a3-a9fb-dbd01eda86a5"
+              }
+            }
+          ],
+          "prosecutionAuthorityReference": "2ecc9feb-9407-482f-b081-d9e5c8ba3ed3",
+          "personDefendant": {
+            "bailStatus": {
+              "code": "A",
+              "description": "Not applicable",
+              "id": "86009c70-759d-3308-8de4-194886ff9a77"
+            },
+            "personDetails": {
+              "address": {
+                "address1": "No fixed abode"
+              },
+              "dateOfBirth": "1980-01-01",
+              "documentationLanguageNeeds": "ENGLISH",
+              "firstName": "George",
+              "gender": "NOT_SPECIFIED",
+              "lastName": "Walsh",
+              "title": "Mr"
+            }
+          }
+        }
+      ],
+      "originatingOrganisation": "G94DV00"
+    }
+  ],
+  "hasSharedResults": true
+}
