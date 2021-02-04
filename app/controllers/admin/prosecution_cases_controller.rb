@@ -73,7 +73,12 @@ module Admin
                                                :appealProceedingsPending,
                                                prosecution_case_identifier_attributes: prosecution_case_identifier_attributes,
                                                hearings_attributes: hearings_attributes,
-                                               defendants_attributes: defendant_attributes)
+                                               defendants_attributes: defendant_attributes,
+                                              )
+    end
+
+    def next_hearing_attributes
+      [:listedStartDateTime]
     end
 
     def defendant_attributes
@@ -209,7 +214,7 @@ module Admin
         terminatesOffenceProceedings
         approvedDate
         category
-      ]
+      ] << { next_hearing_attributes: next_hearing_attributes }
     end
   end
 end

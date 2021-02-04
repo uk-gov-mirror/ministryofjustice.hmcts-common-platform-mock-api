@@ -90,3 +90,12 @@
   <%= judicial_result.label :category %>
   <%= judicial_result.select :category, JudicialResult::CATEGORIES %>
 </div>
+
+  <h3>Next Hearing</h3>
+
+  <%= judicial_result.fields_for :next_hearing do |next_hearing| %>
+    <div class="field">
+      <%= next_hearing.label :listedStartDateTime %>
+      <%= next_hearing.text_field :listedStartDateTime %>
+    </div>
+  <% end %>
